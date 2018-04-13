@@ -50,6 +50,15 @@ class MyFancyForm extends React.Component {
     })
   }
 
+  handleMultiSelect = (event) => {
+    const allVals = Array.from(event.target.selectedOptions).map(o => o.value)
+    this.setState({
+      multiSelect: allVals,
+      multiline: allVals.join('\n'),
+      commaSeparated: allVals.join(',')
+    })
+  }
+
   render() {
    const { commaSeparated, multiline, multiSelect, } = this.state
     return (
